@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title> employee table</title>
+{% endblock %}
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>company</th>
+            <th>email_id</th>
+            <th>department</th>
+            <th>dateOfJoining</th>
+            <th>status</th>
+            <th>projectDomain</th>
+            <th colspan="2">action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.company }}</td>
+            <td>{{ employee.email_id }}</td>
+            <td>{{ employee.department }}</td>
+            <td>{{ employee.dateOfJoining }}</td>
+            <td>{{ employee.status }}</td>
+            <td>{{ employee.projectDomain }}</td>
+            <td>
+                <a href="{% url 'update_url' employee.id %}"><button>Update</button></a>
+            </td>
+            <td>
+                <a href="{% url 'delete_url' employee.id %}"><button>Delete</button></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}
