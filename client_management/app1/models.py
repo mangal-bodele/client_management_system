@@ -9,8 +9,8 @@ class Employee(models.Model):
     email_id = models.CharField(max_length=100, unique=True)
     department = models.CharField(max_length=50)
     dateOfJoining = models.DateField()
-    status = models.Choices(status=STATUS)
-    projectDomain = models.Choices(projectDomain=PROJECTDOMAIN)
+    status = models.CharField(max_length=50,choices=STATUS)
+    projectDomain = models.CharField(max_length=50,choices=PROJECTDOMAIN)
 
     def __str__(self):
         return self.name
